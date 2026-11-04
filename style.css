@@ -1,0 +1,96 @@
+* { box-sizing: border-box; }
+:root {
+  --paper: #eee9df;
+  --ink: #25251f;
+  --muted: #77766d;
+  --line: #d4cfc4;
+  --accent: #7b8064;
+}
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  min-height: 100svh;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 34px 6.2vw 26px;
+  display: flex;
+  flex-direction: column;
+}
+.topbar, .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wordmark {
+  color: var(--ink);
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  font-size: 29px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+.wordmark span, .period { color: var(--accent); }
+.status, .eyebrow, .progress-label, .footer {
+  font-size: 9px;
+  letter-spacing: .17em;
+  font-weight: 600;
+}
+.status { color: var(--muted); display: flex; align-items: center; gap: 9px; }
+.status i {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); display: inline-block;
+  box-shadow: 0 0 0 4px rgba(123,128,100,.12);
+}
+.hero {
+  width: min(760px, 100%);
+  margin: auto;
+  padding: 105px 0 115px;
+  text-align: center;
+}
+.eyebrow { color: var(--muted); margin: 0 0 26px; }
+h1 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(76px, 13vw, 156px);
+  line-height: .98;
+  font-weight: 500;
+  letter-spacing: -.075em;
+}
+.tagline {
+  margin: 27px 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(25px, 4vw, 39px);
+  line-height: 1.22;
+  letter-spacing: -.035em;
+}
+.tagline em { color: var(--accent); font-weight: 500; }
+.rule { width: 42px; height: 1px; background: var(--line); margin: 35px auto 27px; }
+.intro {
+  color: #66665e;
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 0;
+  letter-spacing: .015em;
+}
+.progress-wrap { width: min(360px, 82%); margin: 54px auto 0; }
+.progress-label { color: var(--muted); display: flex; justify-content: space-between; gap: 12px; font-size: 8px; letter-spacing: .12em; }
+.track { height: 2px; background: #d8d2c7; margin-top: 13px; overflow: hidden; }
+.track span { display: block; width: 38%; height: 100%; background: var(--accent); }
+.footnote { color: #929087; font-size: 10px; margin: 19px 0 0; letter-spacing: .035em; }
+.footer { color: #8b897f; font-size: 8px; letter-spacing: .13em; }
+@media (max-width: 600px) {
+  .page { padding: 25px 7vw 22px; }
+  .hero { padding: 80px 0 90px; }
+  .footer { font-size: 7px; letter-spacing: .09em; }
+  .progress-label { font-size: 7px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero { animation: arrive .9s ease-out both; }
+  @keyframes arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+}
